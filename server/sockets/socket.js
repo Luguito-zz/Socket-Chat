@@ -42,7 +42,7 @@ io.on('connection', (client) => {
     client.on('disconnect', () => {
         let personaBorrada = usuarios.borrarPersona(client.id)
 
-        client.broadcast.to(personaBorrada.sala).emit('crearMensaje', crearMensaje('Admin', `${personaBorrada.nombre} abandono el chat`))
+        client.broadcast.to(personaBorrada.sala).emit('crearMensaje', crearMensaje('Administrador', `${personaBorrada.nombre} abandono el chat`))
         client.broadcast.to(personaBorrada.sala).emit('listaPersona', usuarios.getPersonasPorSala(personaBorrada))
 
     });
